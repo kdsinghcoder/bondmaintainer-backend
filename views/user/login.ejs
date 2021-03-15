@@ -1,3 +1,72 @@
 <%- include('../partials/header'); -%>
+<style>
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	.container {
+		width: 40%;
+	}
+    h1{
+        color: #2e1e15;
+    }
+	.submit-button {
+		display: block;
+		width: 100%;
+		padding: 0.75rem;
+		background: #2e1e15;
+		color: #fff;
+		border-radius: 2px;
+		cursor: pointer;
+	}
+</style>
+<div class="container px-8 pt-4 mx-auto lg:px-4">
+	<h1 class="mt-5 text-center">Log In</h1>
+	<form class="mt-3">
+		<div class="mb-3">
+			<input
+				type="email"
+				class="form-control"
+				id="InputEmail"
+				aria-describedby="emailHelp"
+				placeholder="Your Email_Id"
+				required
+			/>
+			<div id="emailHelp" class="form-text px-4">
+				We'll never share your email with anyone else.
+			</div>
+		</div>
+		<div class="mb-3">
+			<input
+				type="password"
+				class="form-control"
+				id="InputPassword1"
+                placeholder="Your Password"
+				required
+			/>
+		</div>
+		<div class="mb-3 form-check">
+			<input type="checkbox" class="form-check-input mx-2 form-text" id="showPass" />
+			<label class="form-check-label form-text" for="showPass">Show Password</label>
+		</div>
+		<button type="submit" class="btn submit-button">Submit</button>
+	</form>
+</div>
+<script>
 
+        const togglePassword = document.getElementById('showPass');
+
+
+        const showOrHidePassword = () => {
+            const password = document.getElementById('InputPassword1');
+            if (password.type === 'password') {
+                password.type = 'text';
+            } else {
+                password.type = 'password';
+            }
+        };
+
+        togglePassword.addEventListener('change', showOrHidePassword);
+    </script>
 <%- include('../partials/footer'); -%>
