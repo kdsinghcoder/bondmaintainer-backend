@@ -11,15 +11,29 @@ router.get('/', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
-router.get('/speeches', ensureAuthenticated, (req, res) =>
-  res.render('dashboard/speeches', {
-    user: req.user
-  })
-);
 router.get('/profile', ensureAuthenticated, (req, res) =>
   res.render('dashboard/profile', {
     user: req.user
   })
 );
+router.get('/connections', ensureAuthenticated, (req, res) =>
+  res.render('dashboard/connections', {
+    user: req.user
+  })
+);
+router.get('/events', ensureAuthenticated, (req, res) =>
+  res.render('dashboard/connections', {
+    user: req.user
+  })
+);
+
+router.get('/viewconnection', ensureAuthenticated, (req, res) =>
+  res.render('dashboard/connections', {
+    user: req.user
+  })
+);
+
+
+
 
 module.exports = router;
