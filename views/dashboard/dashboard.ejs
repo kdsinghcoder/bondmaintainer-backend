@@ -72,7 +72,7 @@
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color: #ef8157;">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color: rgba(251, 191, 36);">
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
@@ -95,7 +95,11 @@
                         <li>
                             <a class="profile-pic" href="#">
                                 <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
+                                    class="img-circle"><span class="text-white font-medium"><%= user.name %></span></a>
+                        </li>
+
+                        <li>
+                            <a class="profile-pic" href="/users/logout" style="border: 4px solid white;border-radius: 5px; text-align: center;"><span class="text-white font-medium">Logout</span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -118,52 +122,38 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/"
                                 aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Dashboard</span>
+                                <i class="far fa-clock" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/profile"
                                 aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Profile</span>
+                                <i class="fa fa-user" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Profile</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/connections"
                                 aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Basic Table</span>
+                                <i class="fa fa-table" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Connections</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/events"
                                 aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Icon</span>
+                                <i class="fa fa-font" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Upcoming Events</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/viewconnection"
                                 aria-expanded="false">
-                                <i class="fa fa-globe" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Google Map</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.html"
-                                aria-expanded="false">
-                                <i class="fa fa-columns" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Blank Page</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
-                                aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true" style="color: #ef8157;"></i>
-                                <span class="hide-menu" style="color: #ef8157;">Error 404</span>
+                                <i class="fa fa-globe" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">View Connections</span>
                             </a>
                         </li>
                     </ul>
@@ -361,7 +351,7 @@
                     <div class="col-md-12 col-lg-8 col-sm-12">
                         <div class="card white-box p-0">
                             <div class="card-body">
-                                <h3 class="box-title mb-0">Recent Comments</h3>
+                                <h3 class="box-title mb-0">Recent Events</h3>
                             </div>
                             <div class="comment-widgets">
                                 <!-- Comment Row -->
@@ -371,7 +361,6 @@
                                         <h5 class="font-medium">James Anderson</h5>
                                         <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries. </span>
                                         <div class="comment-footer d-md-flex align-items-center">
-                                             <span class="badge bg-primary rounded">Pending</span>
                                              
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">April 14, 2021</div>
                                         </div>
@@ -383,10 +372,7 @@
                                     <div class="comment-text ps-2 ps-md-3 active w-100">
                                         <h5 class="font-medium">Michael Jorden</h5>
                                         <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries. </span>
-                                        <div class="comment-footer d-md-flex align-items-center">
-
-                                            <span class="badge bg-success rounded">Approved</span>
-                                            
+                                        <div class="comment-footer d-md-flex align-items-center">                                            
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">April 14, 2021</div>
                                         </div>
                                     </div>
@@ -397,10 +383,7 @@
                                     <div class="comment-text ps-2 ps-md-3 w-100">
                                         <h5 class="font-medium">Johnathan Doeting</h5>
                                         <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries. </span>
-                                        <div class="comment-footer d-md-flex align-items-center">
-
-                                            <span class="badge rounded bg-danger">Rejected</span>
-                                            
+                                        <div class="comment-footer d-md-flex align-items-center">                                            
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">April 14, 2021</div>
                                         </div>
                                     </div>
@@ -408,10 +391,11 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="card white-box p-0">
                             <div class="card-heading">
-                                <h3 class="box-title mb-0">Chat Listing</h3>
+                                <h3 class="box-title mb-0">Bond Maintainer Reviews</h3>
                             </div>
                             <div class="card-body">
                                 <ul class="chatonline">
