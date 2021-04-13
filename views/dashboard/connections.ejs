@@ -22,26 +22,34 @@
     <link href="/css/style.min.css" rel="stylesheet">
     <style>
         .title {
-  color: grey;
-  font-size: 18px;
-}
+            color: grey;
+            font-size: 18px;
+        }
+        .white-box{
+            border-radius: 5%;
+        }
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: rgba(251, 191, 36);
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
 
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: rgba(251, 191, 36);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-button:hover, a:hover {
-  opacity: 0.7;
-}
+        button:hover, a:hover {
+            opacity: 0.7;
+        }
+        @media(min-width:992px){
+            .footer{
+                position:fixed;
+                bottom: 0;
+            }
+        }
     </style>
 </head>
 
@@ -215,7 +223,7 @@ button:hover, a:hover {
                 <!-- Three charts -->
                 <!-- ============================================================== -->
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="white-box analytics-info text-center">
                                 <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
                                 <h1>John Doe</h1>
@@ -224,7 +232,7 @@ button:hover, a:hover {
                                 <p><button>View Details</button></p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="white-box analytics-info text-center">
                                 <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
                                 <h1>John Doe</h1>
@@ -233,7 +241,16 @@ button:hover, a:hover {
                                 <p><button>View Details</button></p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="white-box analytics-info text-center">
+                                <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
+                                <h1>John Doe</h1>
+                                <p class="title">CEO & Founder, Example</p>
+                                <p>Harvard University</p>
+                                <p><button>View Details</button></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="white-box analytics-info text-center">
                                 <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
                                 <h1>John Doe</h1>
@@ -246,7 +263,7 @@ button:hover, a:hover {
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center" style="position: fixed;left: 0; bottom: 0;"> 2021 © Bond Maintainer</a>
+            <footer class="footer text-center"> 2021 © Bond Maintainer</a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
