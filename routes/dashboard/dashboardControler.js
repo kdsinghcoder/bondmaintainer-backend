@@ -21,14 +21,14 @@ router.get('/connections', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
-router.get('/events', ensureAuthenticated, (req, res) =>
-  res.render('dashboard/connections', {
-    user: req.user
-  })
+router.get('/notes', ensureAuthenticated, (req, res) =>
+	res.render('dashboard/notes', {
+		user: req.user,
+	})
 );
 
-router.get('/viewconnection', ensureAuthenticated, (req, res) =>
-  res.render('dashboard/connections', {
+router.get('/addconnections', ensureAuthenticated, (req, res) =>
+  res.render('dashboard/addconnections', {
     user: req.user
   })
 );
