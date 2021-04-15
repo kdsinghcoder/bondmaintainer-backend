@@ -36,6 +36,11 @@ router.get('/viewconnection', ensureAuthenticated, (req, res) =>
   })
 );
 
+router.get('/tips', ensureAuthenticated, (req, res) =>
+  res.render('dashboard/tips', {
+    user: req.user
+  })
+);
 
 
 
