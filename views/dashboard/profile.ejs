@@ -16,6 +16,13 @@
 		<meta name="robots" content="noindex,nofollow" />
 		<title>Bond Maintainer</title>
 		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<link
 			rel="canonical"
 			href="https://www.wrappixel.com/templates/ample-admin-lite/"
 		/>
@@ -107,7 +114,7 @@
 						class="navbar-collapse collapse"
 						id="navbarSupportedContent"
 						data-navbarbg="skin5"
-                        style="background-color: rgba(251, 191, 36)"
+						style="background-color: rgba(251, 191, 36)"
 					>
 						<ul class="navbar-nav d-none d-md-block d-lg-none">
 							<li class="nav-item">
@@ -230,7 +237,7 @@
 										style="color: rgba(251, 191, 36)"
 									></i>
 									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>Upcoming Events</span
+										>Notes</span
 									>
 								</a>
 							</li>
@@ -246,7 +253,7 @@
 										style="color: rgba(251, 191, 36)"
 									></i>
 									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>View Connections</span
+										>Add Connections</span
 									>
 								</a>
 							</li>
@@ -302,7 +309,10 @@
 										alt="user"
 										src="/plugins/images/large/img1.jpg"
 									/>
-									<div class="overlay-box" style="background-color: rgba(251, 191, 36);">
+									<div
+										class="overlay-box"
+										style="background-color: rgba(251, 191, 36)"
+									>
 										<div class="user-content">
 											<a href="javascript:void(0)"
 												><img
@@ -316,14 +326,11 @@
 									</div>
 								</div>
 								<div class="user-btm-box mt-5 d-md-flex">
-									<div class="col-md-4 col-sm-4 text-center">
-										<h1>258</h1>
+									<div class="col-md-8 col-sm-8 text-center">
+										<h3>Total Connections</h3>
 									</div>
 									<div class="col-md-4 col-sm-4 text-center">
-										<h1>125</h1>
-									</div>
-									<div class="col-md-4 col-sm-4 text-center">
-										<h1>556</h1>
+										<h3>556</h3>
 									</div>
 								</div>
 							</div>
@@ -378,33 +385,21 @@
 												/>
 											</div>
 										</div>
-										<div class="form-group mb-4">
-											<label class="col-md-12 p-0">Message</label>
-											<div class="col-md-12 border-bottom p-0">
-												<textarea
-													rows="5"
-													class="form-control p-0 border-0"
-												></textarea>
-											</div>
-										</div>
-										<div class="form-group mb-4">
-											<label class="col-sm-12">Select Country</label>
-
-											<div class="col-sm-12 border-bottom">
-												<select
-													class="form-select shadow-none p-0 border-0 form-control-line"
-												>
-													<option>London</option>
-													<option>India</option>
-													<option>Usa</option>
-													<option>Canada</option>
-													<option>Thailand</option>
-												</select>
-											</div>
+										<label class="col-md-12 p-0">Upload profile pic</label>
+										<div class="form-group custom-file">
+											<input
+												type="file"
+												class="custom-file-input"
+												id="customInput"
+												required
+											/>
+											<label class="custom-file-label" for="customInput"
+												>Choose file...</label
+											>
 										</div>
 										<div class="form-group mb-4">
 											<div class="col-sm-12">
-												<button class="btn btn-success">Update Profile</button>
+												<button class="btn" style="background-color: rgba(251, 191, 36); color: white;">Update Profile</button>
 											</div>
 										</div>
 									</form>
@@ -431,9 +426,7 @@
 				<!-- ============================================================== -->
 				<!-- footer -->
 				<!-- ============================================================== -->
-				<footer class="footer text-center">
-					2021 © Bond Maintainer
-				</footer>
+				<footer class="footer text-center">2021 © Bond Maintainer</footer>
 				<!-- ============================================================== -->
 				<!-- End footer -->
 				<!-- ============================================================== -->
@@ -446,6 +439,16 @@
 		<!-- End Wrapper -->
 		<!-- ============================================================== -->
 		<!-- ============================================================== -->
+		<script>
+			// Add the following code if you want the name of the file appear on select
+			$('.custom-file-input').on('change', function () {
+				var fileName = $(this).val().split('\\').pop();
+				$(this)
+					.siblings('.custom-file-label')
+					.addClass('selected')
+					.html(fileName);
+			});
+		</script>
 		<!-- All Jquery -->
 		<!-- ============================================================== -->
 		<script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>
