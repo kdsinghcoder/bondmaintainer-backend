@@ -9,4 +9,4 @@ Running the project on local system is **strongly recommended**, even if you are
 - Now open the cloned repository using `cd bondmaintainer-backend`
 - The project depends on numerous npm packages. Install them using `yarn install` or `npm install`
 - Run `yarn start` or `npm start` to launch a development server.
-- Open [localhost:3000](http://localhost:5000) and ensure that the server is running.
+- Open [localhost:5000](http://localhost:5000) and ensure that the server is running.
