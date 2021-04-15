@@ -58,6 +58,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => res.render('welcome'));
 
 app.use('/dashboard', require('./routes/dashboard/dashboardControler.js'));
+
 app.use('/users', require('./routes/users.js'));
 
 const PORT = process.env.PORT || 5000;

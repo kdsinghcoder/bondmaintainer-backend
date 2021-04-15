@@ -69,7 +69,7 @@
 			<!-- Topbar header - style you can find in pages.scss -->
 			<!-- ============================================================== -->
 			<header class="topbar" data-navbarbg="skin5">
-				<nav class="navbar top-navbar navbar-expand-md navbar-dark">
+				<nav class="navbar top-navbar navbar-expand-md ">
 					<div class="navbar-header" data-logobg="skin6">
 						<!-- ============================================================== -->
 						<!-- Logo -->
@@ -91,7 +91,6 @@
 							<!-- Logo text -->
 							<span class="logo-text">
 								<!-- dark Logo text -->
-								<!-- <img src="/plugins/images/logo-text.png" alt="homepage" /> -->
 								<h4 class="text-dark">Bond Maintainer</h4>
 							</span>
 						</a>
@@ -149,13 +148,12 @@
 							<!-- ============================================================== -->
 							<li>
 								<a class="profile-pic" href="#">
-									<img
-										src="/plugins/images/users/varun.jpg"
-										alt="user-img"
-										width="36"
-										class="img-circle"
-									/><span class="text-white font-medium">Steave</span></a
-								>
+									<img src="/plugins/images/users/varun.jpg" alt="user-img" width="36"
+										class="img-circle"><span class="text-white font-medium"><%= user.name %></span></a>
+							</li>
+	
+							<li>
+								<a class="profile-pic" href="/users/logout" style="border: 4px solid white;border-radius: 5px; text-align: center;"><span class="text-white font-medium">Logout</span></a>
 							</li>
 							<!-- ============================================================== -->
 							<!-- User profile and search -->
@@ -178,83 +176,38 @@
 						<ul id="sidebarnav">
 							<!-- User Profile-->
 							<li class="sidebar-item pt-2">
-								<a
-									class="sidebar-link waves-effect waves-dark sidebar-link"
-									href="/"
-									aria-expanded="false"
-								>
-									<i
-										class="far fa-clock"
-										aria-hidden="true"
-										style="color: rgba(251, 191, 36)"
-									></i>
-									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>Dashboard</span
-									>
+								<a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard"
+									aria-expanded="false">
+									<i class="far fa-clock" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+									<span class="hide-menu" style="color: rgba(251, 191, 36)">Dashboard</span>
 								</a>
 							</li>
 							<li class="sidebar-item">
-								<a
-									class="sidebar-link waves-effect waves-dark sidebar-link"
-									href="/profile"
-									aria-expanded="false"
-								>
-									<i
-										class="fa fa-user"
-										aria-hidden="true"
-										style="color: rgba(251, 191, 36)"
-									></i>
-									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>Profile</span
-									>
+								<a class="sidebar-link waves-effect waves-dark sidebar-link" href="../dashboard/profile"
+									aria-expanded="false">
+									<i class="fa fa-user" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+									<span class="hide-menu" style="color: rgba(251, 191, 36)">Profile</span>
 								</a>
 							</li>
 							<li class="sidebar-item">
-								<a
-									class="sidebar-link waves-effect waves-dark sidebar-link"
-									href="/connections"
-									aria-expanded="false"
-								>
-									<i
-										class="fa fa-table"
-										aria-hidden="true"
-										style="color: rgba(251, 191, 36)"
-									></i>
-									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>Connections</span
-									>
+								<a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard/connections"
+									aria-expanded="false">
+									<i class="fa fa-table" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+									<span class="hide-menu" style="color: rgba(251, 191, 36)">Connections</span>
 								</a>
 							</li>
 							<li class="sidebar-item">
-								<a
-									class="sidebar-link waves-effect waves-dark sidebar-link"
-									href="/events"
-									aria-expanded="false"
-								>
-									<i
-										class="fa fa-font"
-										aria-hidden="true"
-										style="color: rgba(251, 191, 36)"
-									></i>
-									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>Notes</span
-									>
+								<a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard/notes"
+									aria-expanded="false">
+									<i class="fa fa-font" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+									<span class="hide-menu" style="color: rgba(251, 191, 36)">Notes</span>
 								</a>
 							</li>
 							<li class="sidebar-item">
-								<a
-									class="sidebar-link waves-effect waves-dark sidebar-link"
-									href="/viewconnection"
-									aria-expanded="false"
-								>
-									<i
-										class="fa fa-globe"
-										aria-hidden="true"
-										style="color: rgba(251, 191, 36)"
-									></i>
-									<span class="hide-menu" style="color: rgba(251, 191, 36)"
-										>Add Connections</span
-									>
+								<a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard/addconnections"
+									aria-expanded="false">
+									<i class="fa fa-globe" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+									<span class="hide-menu" style="color: rgba(251, 191, 36)">Add Connections</span>
 								</a>
 							</li>
 						</ul>
@@ -277,13 +230,6 @@
 					<div class="row align-items-center">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 							<h4 class="page-title">Profile page</h4>
-						</div>
-						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-							<div class="d-md-flex">
-								<ol class="breadcrumb ms-auto">
-									<li><a href="#" class="fw-normal">Dashboard</a></li>
-								</ol>
-							</div>
 						</div>
 					</div>
 					<!-- /.col-lg-12 -->
@@ -320,8 +266,8 @@
 													class="thumb-lg img-circle"
 													alt="img"
 											/></a>
-											<h4 class="text-white mt-2">User Name</h4>
-											<h5 class="text-white mt-2">info@myadmin.com</h5>
+											<h4 class="text-white mt-2"><%= user.name %></h4>
+											<h5 class="text-white mt-2"><%= user.email %></h5>
 										</div>
 									</div>
 								</div>
@@ -346,8 +292,9 @@
 											<div class="col-md-12 border-bottom p-0">
 												<input
 													type="text"
-													placeholder="Johnathan Doe"
+													placeholder="<%= user.name %>"
 													class="form-control p-0 border-0"
+													
 												/>
 											</div>
 										</div>
@@ -358,7 +305,7 @@
 											<div class="col-md-12 border-bottom p-0">
 												<input
 													type="email"
-													placeholder="johnathan@admin.com"
+													placeholder="<%= user.email %>"
 													class="form-control p-0 border-0"
 													name="example-email"
 													id="example-email"
@@ -380,7 +327,7 @@
 											<div class="col-md-12 border-bottom p-0">
 												<input
 													type="text"
-													placeholder="123 456 7890"
+													placeholder="9090262977"
 													class="form-control p-0 border-0"
 												/>
 											</div>
