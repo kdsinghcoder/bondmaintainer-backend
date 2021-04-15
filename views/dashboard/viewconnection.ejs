@@ -20,6 +20,35 @@
     <link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="/css/style.min.css" rel="stylesheet">
+    <style>
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+        .card{
+            border-radius: 20px;
+            color: white;
+            background-color: rgba(251, 191, 36);
+        }
+        .card-header{
+            background-color: #fff; 
+            color: rgba(251, 191, 36);
+            border-top-left-radius : 20px !important;
+            border-top-right-radius : 20px !important;
+            font-size: 18px;
+        }
+        .form-popup {
+            display: none;
+        }
+        .form-container {
+            max-width: 400px;
+            padding: 10px;
+            background-color: rgba(251, 191, 36);
+            color: white;
+            border-radius: 2%;
+            margin:2% auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -168,7 +197,109 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">My Reminders</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid" style="background-color: #f4f3ef;">
+                <!-- ============================================================== -->
+                <!-- Three charts -->
+                <!-- ============================================================== -->
+                <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                        <div class="card analytics-info text-center">
+                                <div class="card-header">
+                                    Happy Birthday
+                                </div>
+                                <p class="title">John's Birthday </p>
+                                <p> On your birthday may all that you asked from God be granted to you hundred fold! Happy Birthday to my sweetest friend. Always keep smiling the way you do! Have an amazing day and an even more special year ahead. May God Bless you.
+                                </p>
+                                <div class="card-footer row">
+                                    <div class="col-4">
+                                        15|04|2021
+                                    </div>
+                                    <div class="col-4">
+                                        12:00 AM
+                                    </div>
+                                    <div class="col-4">
+                                        Yearly
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card analytics-info text-center">
+                                <div class="card-header">
+                                    House Party
+                                </div>
+                                <p class="title">House Party at John's Bunglow</p>
+                                <p> On your birthday may all that you asked from God be granted to you hundred fold! Happy Birthday to my sweetest friend. Always keep smiling the way you do! Have an amazing day and an even more special year ahead. May God Bless you.
+                                </p>
+                                <div class="card-footer row">
+                                    <div class="col-4">
+                                        20|04|2021
+                                    </div>
+                                    <div class="col-4">
+                                        08:00 PM
+                                    </div>
+                                    <div class="col-4">
+                                        Monthly
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-warning btn-lg btn-block w-100" onclick="openForm()">Set Reminders</button>
+                <div class="form-popup" id="myForm">
+                    <form class="form-container">
+                        <h1>Set Reminder</h1>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" placeholder="Enter title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="heading">Heading</label>
+                            <input type="text" class="form-control" placeholder="Enter Heading" name="heading" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea type="text" class="form-control" placeholder="Enter Message" name="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" name="date" required></>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="text" class="form-control" placeholder="Enter time" name="time" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputState">Frequency</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option value="">Frequency</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Monthly</option>
+                                <option value="3">Yearly</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-light w-100">Submit</button>
+                    </form>
+                </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -192,6 +323,11 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+</script>
     <script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
