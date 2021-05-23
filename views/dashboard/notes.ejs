@@ -83,7 +83,7 @@
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
+                            <form role="search" class="app-search d-none d-md-block me-3" >
                                 <input type="text" placeholder="Search..." class="form-control mt-0">
                                 <a href="" class="active">
                                     <i class="fa fa-search"></i>
@@ -270,8 +270,8 @@
                 
                 <div id="wrapper">
 
-                    <form id="paper" method="get" action="">
-                        <textarea placeholder="Keep a record" id="text" name="text" rows="15" cols="85" style="overflow: hidden; word-wrap: break-word; resize: none;"></textarea>  
+                    <form id="paper" action="/dashboard/notes" method="POST">
+                        <textarea placeholder="Keep a record" id="text" name="Notes" rows="15" cols="85" value="<%= user.Notes %>" style="overflow: hidden; word-wrap: break-word; resize: none;" ><%= user.Notes %></textarea>  
                         <br>
                         <input id="button" type="submit" value="Update">
                         

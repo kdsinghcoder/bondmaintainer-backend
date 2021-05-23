@@ -230,50 +230,33 @@
                 <!-- Three charts -->
                 <!-- ============================================================== -->
                 <div class="row justify-content-center">
+                    
+                    <% var test = 0; %>
+                    <% allCon.forEach(function(allCon){ %>
+                    <% test++ %>
+
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="white-box analytics-info text-center">
                                 <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
-                                <h1>John Doe</h1>
-                                <p class="title">CEO & Founder, Example</p>
-                                <p>Harvard University</p>
-                                <a href="../dashboard/viewconnection">
+                                <h1><%= allCon.Name %></h1>
+                                <p class="title"><%= allCon.PhoneNumber %></p>
+                                <!-- <p>Harvard University</p> -->
+                                <!-- <a href="../dashboard/viewconnection">
                                     <p><button>View Details</button></p>
-                                </a>
+                                </a> -->
+                                <form action="/dashboard/viewconnection" method="GET">
+                                    <button class=""  type="submit" name="viewrem_user" id="editspeech" value="<%= allCon._id%>" style="border-radius: 15px;" >
+                                        Edit This Speech
+                                    </button>
+                                </form>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="white-box analytics-info text-center">
-                                <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
-                                <h1>John Doe</h1>
-                                <p class="title">CEO & Founder, Example</p>
-                                <p>Harvard University</p>
-                                <a href="../dashboard/viewconnection">
-                                    <p><button>View Details</button></p>
-                                </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="white-box analytics-info text-center">
-                                <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
-                                <h1>John Doe</h1>
-                                <p class="title">CEO & Founder, Example</p>
-                                <p>Harvard University</p>
-                                <a href="../dashboard/viewconnection">
-                                    <p><button>View Details</button></p>
-                                </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="white-box analytics-info text-center">
-                                <img src="/plugins/images/users/1.jpg" alt="John" style="width:40%; border-radius: 50%;">
-                                <h1>John Doe</h1>
-                                <p class="title">CEO & Founder, Example</p>
-                                <p>Harvard University</p>
-                                <a href="../dashboard/viewconnection">
-                                    <p><button>View Details</button></p>
-                                </a>
-                        </div>
-                    </div>
+                    <% }); %>
+                    <% if(test == 0) { %>
+                        <h4 style="text-align: center;color: red">You Do not have any Connections yet</h4>
+                        <h5 style="text-align: center;color: green">add Connections</h5>
+                      <% } %>
+
                 </div>
             <!-- ============================================================== -->
             <!-- footer -->
