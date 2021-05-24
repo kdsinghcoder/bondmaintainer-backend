@@ -79,7 +79,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.ejs">
+                    <a class="navbar-brand" href="../dashboard">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -195,6 +195,13 @@
                                 <span class="hide-menu" style="color: rgba(251, 191, 36)">Add Connections</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../dashboard/tips"
+                                aria-expanded="false">
+                                <i class="fa fa-child" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Tips and Tricks</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -234,26 +241,28 @@
                         <% allRem.forEach(function(allRem){ %>
                             <% test++ %>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="card analytics-info text-center">
                                         <div class="card-header">
-                                            Happy Birthday
+                                            <%= allRem.Title %>
                                         </div>
-                                        <p class="title">John's Birthday </p>
-                                        <p> On your birthday may all that you asked from God be granted to you hundred
-                                            fold! Happy Birthday to my sweetest friend. Always keep smiling the way you
-                                            do! Have an amazing day and an even more special year ahead. May God Bless
-                                            you.
-                                        </p>
+                                        <!-- <p class="title">John's Birthday </p> -->
+                                        <p><%= allRem.Message %></p>
                                         <div class="card-footer row">
                                             <div class="col-4">
-                                                15|04|2021
+                                                <%= allRem.Date.toDateString() %>
                                             </div>
                                             <div class="col-4">
                                                 12:00 AM
                                             </div>
                                             <div class="col-4">
-                                                Yearly
+                                                <% if(allRem.Frequency==1) { %>
+                                                Once
+                                                <% } %>
+
+                                                <% if(allRem.Frequency==2) { %>
+                                                    Yearly
+                                                <% } %>
                                             </div>
                                         </div>
                                     </div>
@@ -270,29 +279,30 @@
 
                                             <button type="button" class="btn btn-outline-warning btn-lg btn-block w-100"
                                                 onclick="openForm()">Set Reminders</button>
-                                            <div class="form-popup" id="myForm">
-                                                <form class="form-container">
+                                            <div class="form-popup" id="myForm" >
+                                                <form class="form-container" action="/dashboard/viewconnection" method="POST">
+                                                    <input type="text" hidden value="<%= connection._id %>" name="ConnectionID">
                                                     <h1>Set Reminder</h1>
                                                     <div class="form-group">
                                                         <label for="title">Title</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Enter title" name="title" required>
+                                                            placeholder="Enter title" name="Title" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="message">Message</label>
                                                         <textarea type="text" class="form-control"
-                                                            placeholder="Enter Message" name="message"
+                                                            placeholder="Enter Message" name="Message"
                                                             required></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="date">Date</label>
-                                                        <input type="date" class="form-control" name="date" required></>
+                                                        <input type="date" class="form-control" name="Date" required></>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="inputState">Frequency</label>
-                                                        <select id="inputState" class="form-control">
+                                                        <select id="inputState" name="Frequency" class="form-control">
                                                             <option selected>Choose...</option>
                                                             <option value="1">Once</option>
                                                             <option value="2">Yearly</option>

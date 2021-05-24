@@ -14,10 +14,39 @@ router.get("/", ensureAuthenticated, (req, res) =>
   })
 );
 router.get("/profile", ensureAuthenticated, (req, res) =>
-  res.render("dashboard/profile", {
-    user: req.user,
-  })
+
+Con.count({UserID: req.user._id}, function( err, count){
+  if(err){
+    console.log(err);
+  }else{
+    res.render("dashboard/profile", {
+      user: req.user,count:count
+    })
+  }
+})
 );
+
+//Post method to update profile
+router.post("/updateprofile", ensureAuthenticated, (req, res) =>{
+
+  _id = req.user.id;
+  
+  newname= req.body.name;
+  newemail=req.body.email;
+  newphonenumber = req.body.phonenumber;
+
+
+  User.findByIdAndUpdate(_id, { name: newname, email: newemail, phonenumber: newphonenumber }, function (err, docs) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/dashboard/profile");
+    }
+  });
+}
+);
+
+
 
 router.get("/connections", ensureAuthenticated, (req, res) => {
   Con.find({ UserID: req.user.id }, function (err, allCon) {
@@ -73,9 +102,7 @@ router.post("/addconnections", ensureAuthenticated, (req, res) => {
   });
 });
 
-router.get("/viewconnection", ensureAuthenticated, (req, res) =>{
-
-  console.log(req.query.viewrem_user);
+router.get("/viewconnection", ensureAuthenticated, (req, res) => {
   Rem.find({ ConnectionID: req.query.viewrem_user }, function (err, allRem) {
     if (err) {
       console.log(err);
@@ -85,13 +112,43 @@ router.get("/viewconnection", ensureAuthenticated, (req, res) =>{
           console.log(err);
         } else {
           console.log(connection);
-          res.render("dashboard/viewconnection", { user: req.user, connection: connection, allRem: allRem });
+          res.render("dashboard/viewconnection", {
+            user: req.user,
+            connection: connection,
+            allRem: allRem,
+          });
         }
       });
     }
   });
-}
-);
+});
+
+router.post("/viewconnection", ensureAuthenticated, (req, res) => {
+  var UserID = req.user.id;
+  var ConnectionID = req.body.ConnectionID;
+  var Title = req.body.Title;
+  var Message = req.body.Message;
+  var Date = req.body.Date;
+  var Frequency = req.body.Frequency;
+  var newRem = {
+    UserID: UserID,
+    Title: Title,
+    ConnectionID: ConnectionID,
+    Title: Title,
+    Message: Message,
+    Date: Date,
+    Frequency: Frequency,
+  };
+  console.log(newRem);
+  Rem.create(newRem, function (err, newlyCreated) {
+    if (err) {
+      console.log(err);
+    } else {
+      var url = "/dashboard/viewconnection?viewrem_user=" + ConnectionID;
+      res.redirect(url);
+    }
+  });
+});
 
 router.get("/tips", ensureAuthenticated, (req, res) =>
   res.render("dashboard/tips", {

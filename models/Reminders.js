@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const RemSchema = new mongoose.Schema({
+  UserID:{
+    type: String,
+    required: true
+  },
   ConnectionID: {
     type: String,
     required: true,
