@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+var mongoose = require("mongoose");
 const {
   ensureAuthenticated,
   forwardAuthenticated,
@@ -8,10 +9,54 @@ var Con = require("../../models/Connection");
 var User = require("../../models/User");
 var Rem = require("../../models/Reminders");
 // Dashboard
-router.get("/", ensureAuthenticated, (req, res) =>
-  res.render("dashboard/dashboard", {
-    user: req.user,
+
+mongoose.set('useFindAndModify', false);
+
+router.get("/", ensureAuthenticated, (req, res) =>{
+
+  Con.count({UserID: req.user._id}, function( err, Totalcon){
+    if(err){
+      console.log(err);
+    }else{
+      Rem.count({UserID: req.user._id}, function( err, TotalRem){
+        if(err){
+          console.log(err);
+        }else{
+          User.findOneAndUpdate( {_id: req.user._id},{$inc : {'PageView' : 1}},{new: true},function(err, response) { 
+           if(err){
+             console.log(err);
+           }else{
+            User.findOne({ _id: req.user._id }, function (err, userPageView) {
+              if (err) {
+                console.log(err);
+              } else {
+                // console.log(req.user._id);
+                Rem.find({UserID: req.user._id}, null, {sort: {Date: -1},limit: 5}, (err, Reminders) => { 
+                  if(err){
+                    console.log(err);
+                  }else{
+                    Con.find({UserID: req.user._id}, null,{limit: 5},(err, FavConnections) => { 
+
+                    if(err){
+                      console.log(err);
+                    }else{
+                      console.log(FavConnections);
+                      res.render("dashboard/dashboard", {user: req.user,Totalcon:Totalcon, TotalRem: TotalRem, PageView: userPageView.PageView,Reminders: Reminders , FavConnections:FavConnections});
+                    }
+                    });
+                  }
+                  
+                  });
+
+              }
+            });
+           }
+            });
+        }
+      })
+    } 
   })
+}
 );
 router.get("/profile", ensureAuthenticated, (req, res) =>
 

@@ -83,12 +83,12 @@
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
+                            <!-- <form role="search" class="app-search d-none d-md-block me-3">
                                 <input type="text" placeholder="Search..." class="form-control mt-0">
                                 <a href="" class="active">
                                     <i class="fa fa-search"></i>
                                 </a>
-                            </form>
+                            </form> -->
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -129,13 +129,7 @@
                                 <span class="hide-menu" style="color: rgba(251, 191, 36)">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/profile"
-                                aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
-                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Profile</span>
-                            </a>
-                        </li>
+                        
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/connections"
                                 aria-expanded="false">
@@ -143,13 +137,7 @@
                                 <span class="hide-menu" style="color: rgba(251, 191, 36)">Connections</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/notes"
-                                aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
-                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Notes</span>
-                            </a>
-                        </li>
+                       
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/addconnections"
                                 aria-expanded="false">
@@ -162,6 +150,20 @@
                                 aria-expanded="false">
                                 <i class="fa fa-child" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
                                 <span class="hide-menu" style="color: rgba(251, 191, 36)">Tips and Tricks</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/notes"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Notes</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard/profile"
+                                aria-expanded="false">
+                                <i class="fa fa-user" aria-hidden="true" style="color: rgba(251, 191, 36)"></i>
+                                <span class="hide-menu" style="color: rgba(251, 191, 36)">Profile</span>
                             </a>
                         </li>
                     </ul>
@@ -201,14 +203,14 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Visit</h3>
+                            <h3 class="box-title">Total Connections</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
-                                <li class="ms-auto"><span class="counter text-success">659</span></li>
+                                <li class="ms-auto"><span class="counter text-success"><%=Totalcon %></span></li>
                             </ul>
                         </div>
                     </div>
@@ -221,20 +223,20 @@
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
-                                <li class="ms-auto"><span class="counter text-purple">869</span></li>
+                                <li class="ms-auto"><span class="counter text-purple"><%=PageView %></span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Saved Events</h3>
+                            <h3 class="box-title">Total Reminders</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash3"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
-                                <li class="ms-auto"><span class="counter text-info">911</span>
+                                <li class="ms-auto"><span class="counter text-info"><%=TotalRem %></span>
                                 </li>
                             </ul>
                         </div>
@@ -250,54 +252,41 @@
                             <div class="d-md-flex mb-3">
                                 <h3 class="box-title mb-0">Upcoming Events</h3>
                                 <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
-                                    <select class="form-select shadow-none row border-top">
+                                    <!-- <select class="form-select shadow-none row border-top">
                                         <option>April 2021</option>
                                         <option>May 2021</option>
                                         <option>June 2021</option>
                                         <option>July 2021</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table no-wrap">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">#</th>
-                                            <th class="border-top-0">Name</th>
+                                            <th class="border-top-0">Title</th>
                                             <th class="border-top-0">Messages</th>
                                             <th class="border-top-0">Date</th>
-                                            <!-- <th class="border-top-0">Event</th> -->
+                                            <th class="border-top-0">Frequency</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <% Reminders.forEach(function(Reminders){ %>
                                         <tr>
-                                            <td>1</td>
-                                            <td class="txt-oflo">Karandeep Singh</td>
-                                            <td>I need to wish karan on this Birthday</td>
-                                            <td class="txt-oflo">April 18, 2021</td>
-                                            <!-- <td><span class="text-success">Bithday</span></td> -->
+                                            <td class="txt-oflo"><%=Reminders.Title %></td>
+                                            <td><%=Reminders.Message %></td>
+                                            <td class="txt-oflo"><%=Reminders.Date.toDateString() %></td>
+                                            <td><span class="text-success">
+                                                <% if(Reminders.Frequency==1) { %>
+                                                    Once
+                                                    <% } %>
+    
+                                                    <% if(Reminders.Frequency==2) { %>
+                                                        Yearly
+                                                    <% } %>
+                                            </span></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td class="txt-oflo">Sanskrita Saha</td>
-                                            <td>Got an Internship in Amazon, I need to wish her</td>
-                                            <td class="txt-oflo">April 19, 2021</td>
-                                            <!-- <td><span class="text-info">House-Party</span></td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td class="txt-oflo">Arnav Deshpande</td>
-                                            <td>Arnav will reach delhi, Ask how was the journey</td>
-                                            <td class="txt-oflo">April 19, 2021</td>
-                                            <!-- <td><span class="text-info">House-Party</span></td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td class="txt-oflo">Anisha Khatun</td>
-                                            <td>cousin's wedding call her and apologize for not being present</td>
-                                            <td class="txt-oflo">April 20, 2021</td>
-                                            <!-- <td><span class="text-danger">Doctor Appointment</span></td> -->
-                                        </tr>
+                                        <% }); %>
                                     </tbody>
                                 </table>
                             </div>
@@ -355,10 +344,12 @@
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="card white-box p-0">
                             <div class="card-heading">
-                                <h3 class="box-title mb-0">Your Close Connection list</h3>
+                                <h3 class="box-title mb-0">Your Connections</h3>
                             </div>
                             <div class="card-body">
                                 <ul class="chatonline">
+
+                                    <% FavConnections.forEach(function(FavConnections){ %>
                                     <li>
                                         <div class="call-chat" style="text-align: center;">
                                             <button class="btn btn-info btn-circle btn" type="button">
@@ -368,81 +359,12 @@
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
                                                 src="/plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
                                             <div class="ms-2">
-                                                <span class="text-dark">Varun Dhavan</span>
+                                                <span class="text-dark"><%=FavConnections.Name %></span>
+                                                <p><%=FavConnections.PhoneNumber %></p>
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <div class="call-chat" style="text-align: center;">
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-smile fa-lg" style="color: white;"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="/plugins/images/users/genu.jpg" alt="user-img" class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">Genelia
-                                                    Deshmukh</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat" style="text-align: center;">
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-smile fa-lg" style="color: white;"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="/plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">Ritesh
-                                                    Deshmukh </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat" style="text-align: center;">
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-smile fa-lg" style="color: white;"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="/plugins/images/users/arijit.jpg" alt="user-img" class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">Arijit
-                                                    Sinh </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat" style="text-align: center;">
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-smile fa-lg" style="color: white;"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="/plugins/images/users/govinda.jpg" alt="user-img"
-                                                class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">Govinda
-                                                    Star </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat" style="text-align: center;">
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-smile fa-lg" style="color: white;"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="/plugins/images/users/hritik.jpg" alt="user-img" class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">John
-                                                    Abraham</span>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    <% }); %>
                                 </ul>
                             </div>
                         </div>
