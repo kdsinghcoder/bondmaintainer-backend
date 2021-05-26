@@ -6,12 +6,13 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
 
+require('dotenv/config');
+
 // Passport Config
 require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/keys').mongoURI;
-
+const db = process.env.TOKEN;
 // Connect to MongoDB
 mongoose
   .connect(
