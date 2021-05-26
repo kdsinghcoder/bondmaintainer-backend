@@ -51,7 +51,7 @@ app.use(function(req, res, next) {
   res.locals.error = req.flash('error');
   next();
 });
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('./public'));
 
 // Routes
 app.get('/', (req, res) => res.render('welcome'));

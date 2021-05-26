@@ -94,7 +94,7 @@
                         <!-- ============================================================== -->
                         <li>
                             <a class="profile-pic" href="#">
-                                <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36"
+                                <img src="<%= user.ProfilePic %>" alt="user-img" width="36"
                                     class="img-circle"><span class="text-white font-medium"><%= user.name %></span></a>
                         </li>
 
@@ -201,7 +201,7 @@
                     <div class="col-lg-8 col-xlg-9 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material"  action="/dashboard/addconnections" method="POST">
+                                <form class="form-horizontal form-material"  action="/dashboard/addconnections" method="POST" enctype="multipart/form-data">
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Full Name</label>
                                         <div class="col-md-12 border-bottom p-0">
@@ -210,6 +210,7 @@
                                                 placeholder="Enter connection name"
                                                 class="form-control p-0 border-0"
                                                 name="Name"
+                                                required
                                             />
                                         </div>
                                     </div>
@@ -222,6 +223,7 @@
                                                 placeholder="9090262977"
                                                 class="form-control p-0 border-0"
                                                 name="PhoneNumber"
+                                                required
                                             />
                                         </div>
                                     </div>
@@ -232,6 +234,7 @@
                                             class="custom-file-input"
                                             id="customInput"
                                             name="ProfilePic"
+                                            required
                                         />
                                     </div>
                                     <div class="form-group mb-4">
