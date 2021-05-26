@@ -248,7 +248,13 @@
                                 </a> -->
                                 <form action="/dashboard/viewconnection" method="GET">
                                     <button class=""  type="submit" name="viewrem_user" id="editspeech" value="<%= allCon._id%>" style="border-radius: 15px;" >
-                                        Edit This Speech
+                                        Reminders
+                                    </button>
+                                </form>
+
+                                <form action="/dashboard/deleteconnection" method="POST">
+                                    <button class=""  type="submit" name="deleteconnection" id="deleteconnection" value="<%=allCon._id%>" style="border-radius: 15px;background-color: red; margin-top: 1rem;" >
+                                        Delete Connection
                                     </button>
                                 </form>
                         </div>

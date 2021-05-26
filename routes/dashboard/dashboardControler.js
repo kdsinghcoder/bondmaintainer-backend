@@ -267,4 +267,37 @@ router.get("/tips", ensureAuthenticated, (req, res) =>
   })
 );
 
+router.post("/deleterem", ensureAuthenticated, (req, res) => {
+  Rem.findOneAndDelete({ _id: req.body.remDel }, function (err, docs) {
+    if (err) {
+      console.log(err);
+    } else {
+      var url =
+        "/dashboard/viewconnection?viewrem_user=" + req.body.ConnectionID;
+      res.redirect(url);
+    }
+  });
+});
+
+router.post("/deleteconnection", ensureAuthenticated, (req, res) => {
+  var ConnectionID = req.body.deleteconnection;
+
+  Rem.deleteMany(
+    { UserID: req.user._id, ConnectionID: ConnectionID },
+    function (err, docs) {
+      if (err) {
+        console.log(err);
+      } else {
+        Con.findOneAndDelete({ _id: ConnectionID }, function (err, docs) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.redirect("/dashboard/connections");
+          }
+        });
+      }
+    }
+  );
+});
+
 module.exports = router;

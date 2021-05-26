@@ -18,6 +18,7 @@
     <!-- Custom CSS -->
     <link href="/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom CSS -->
     <link href="/css/style.min.css" rel="stylesheet">
     <style>
@@ -245,6 +246,11 @@
                                     <div class="card analytics-info text-center">
                                         <div class="card-header">
                                             <%= allRem.Title %>
+                                            <form action="/dashboard/deleterem" style="float: right;" method="POST">
+                                                <input type="text" value="<%=connection._id %>" hidden name="ConnectionID">
+                                                <button style="border: none;" value="<%=allRem._id %>" name="remDel"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+
                                         </div>
                                         <!-- <p class="title">John's Birthday </p> -->
                                         <p><%= allRem.Message %></p>
@@ -271,7 +277,7 @@
                                 <% }); %>
                                     <% if(test==0) { %>
                                         <h4 style="text-align: center;color: red">You Do not have any Reminders</h4>
-                                        <h5 style="text-align: center;color: green">Yet Saved for <%= connection.Name %> add a new Reminder </h5>
+                                        <h5 style="text-align: center;color: green">Yet Saved for <%=connection.Name %> add a new Reminder </h5>
                                         <% } %>
 
 
