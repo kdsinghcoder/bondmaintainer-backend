@@ -52,7 +52,8 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           name,
           email,
-          password
+          password,
+          ProfilePic: "https://i.imgur.com/0cURfPH.png"
         });
 
         bcrypt.genSalt(10, (err, salt) => {
