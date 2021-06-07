@@ -1,4 +1,13 @@
 # bondmaintainer-backend
+![issue](https://img.shields.io/github/issues/kdsinghcoder/bondmaintainer-backend)
+![GitHub language count](https://img.shields.io/github/languages/count/kdsinghcoder/bondmaintainer-backend)
+![version](https://img.shields.io/github/package-json/v/kdsinghcoder/bondmaintainer-backend)
+![image](https://user-images.githubusercontent.com/50829119/120977728-49f65d80-c791-11eb-875e-92b424ebe963.png)
+
+### Hosted on
+ <a href="https://bondmaintainer.herokuapp.com/">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Open sayhello">
+</a>
 
 
 ## Running on Local System
